@@ -64,7 +64,7 @@ usn=01fe22bcs200&osolCatchaTxt=REBLB&osolCatchaTxtInst=0
 ```html
 <html>
   <body>
-    <h3>Student Name: John Doe</h3>
+    <h3>Student Name: Rohit M R</h3>
     <table>
       <tr><td>Machine Learning</td><td>A</td></tr>
       <tr><td>Data Structures</td><td>B</td></tr>
@@ -109,13 +109,13 @@ for series in ["01fe22bcs", "01fe22bci"]:
         )
 
         if "Wrong CAPTCHA" in response.text:
-            print(f"❌ CAPTCHA expired. Try again.")
+            print(f" CAPTCHA expired. Try again.")
             break
 
         with open(f"{usn}.html", "w", encoding="utf-8") as file:
             file.write(response.text)
 
-        print(f"✅ Saved: {usn}.html")
+        print(f" Saved: {usn}.html")
 ```
 
 ---
