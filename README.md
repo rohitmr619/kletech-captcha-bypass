@@ -1,4 +1,4 @@
-# 🐛 KLE Tech eResults CAPTCHA Bypass Exploit
+#  KLE Tech eResults CAPTCHA Bypass Exploit
 
 ## ⚠️ Vulnerability: Persistent CAPTCHA Token Allows Mass Data Scraping
 
@@ -9,14 +9,13 @@ This flaw enables **mass scraping of student records**, violating privacy regula
 
 ---
 
-## 🎯 **Vulnerability Type**
+##  **Vulnerability Type**
 - **CAPTCHA Replay Attack**
 - **Broken Authentication Mechanism**
-- **Insecure Direct Object Reference (IDOR)**
 
 ---
 
-## 🔍 **How the Exploit Works**
+##  **How the Exploit Works**
 1. **Access the eResults page**, enter a valid **USN** (University Seat Number), and solve the CAPTCHA.
 2. **Capture the request in Burp Suite** and note the **POST request** containing the CAPTCHA value.
 3. **Navigate back in the browser** and input a **different USN**.
@@ -25,7 +24,7 @@ This flaw enables **mass scraping of student records**, violating privacy regula
 
 ---
 
-## 🔎 **Burp Suite Request & Response Analysis**
+##  **Burp Suite Request & Response Analysis**
 
 
 ![Screenshot from 2025-03-06 22-16-18](https://github.com/user-attachments/assets/cd08acfa-4991-4690-8297-89745ec252c3)
@@ -72,18 +71,18 @@ usn=01fe22bcs200&osolCatchaTxt=REBLB&osolCatchaTxtInst=0
   </body>
 </html>
 ```
-📊 The **server accepts the same CAPTCHA** and returns **another student's results** without verification.
+ The **server accepts the same CAPTCHA** and returns **another student's results** without verification.
 
 ---
 
-## 🤖 **Automating the Exploit**
-We developed a Python script to:
+##  **Automating the Exploit**
+I developed a Python script to:
 1. **Solve CAPTCHA once** and save the token.
 2. **Loop through all USNs** (`01fe22bcs001` → `01fe22bcs300`, `01fe22bci001` → `01fe22bci300`).
 3. **Reuse the same CAPTCHA** for every request.
 4. **Save each student's HTML response locally**.
 
-### 👉 **Python Exploit Code**
+###  **Python Exploit Code**
 ```python
 import requests
 
@@ -120,13 +119,13 @@ for series in ["01fe22bcs", "01fe22bci"]:
 
 ---
 
-## 🛡 **How to Fix This?**
-### 🔴 **Current Issue:**
+##  **How to Fix This?**
+###  **Current Issue:**
 - CAPTCHA is **not session-based** and can be reused.
 - No per-request CAPTCHA verification.
 - No rate-limiting or request throttling.
 
-### 🛠 **Recommended Fixes:**
+###  **Recommended Fixes:**
 1. **Generate a new CAPTCHA** for every request.
 2. **Tie the CAPTCHA token to a session** and expire it after a single use.
 3. **Implement rate limiting** to block excessive requests from a single user.
@@ -134,15 +133,9 @@ for series in ["01fe22bcs", "01fe22bci"]:
 
 ---
 
-## 🎯 **Impact**
+##  **Impact**
 - **Confidentiality Breach**: Any student's academic records can be accessed.
 - **Privacy Violation**: Exposes personal academic information without authentication.
-- **Regulatory Issues**: May violate data protection laws like **GDPR** and **Indian IT Act**.
-
----
-
-## 💌 **Responsible Disclosure**
-This report is for **educational purposes only**. If you are a security researcher or the system administrator of KLE Tech, we strongly recommend **fixing this vulnerability immediately**.
 
 ---
 
@@ -151,8 +144,4 @@ This repository is for **educational and ethical hacking research purposes only*
 
 ---
 
-
----
-
-### 💪 Thanks for reading. Stay ethical! 🔒
 
