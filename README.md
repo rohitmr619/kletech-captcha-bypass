@@ -1,6 +1,6 @@
 #  KLE Tech eResults CAPTCHA Bypass Exploit
 
-## ⚠ Vulnerability: Persistent CAPTCHA Token Allows Mass Data Scraping
+##  Vulnerability: Persistent CAPTCHA Token Allows Mass Data Scraping
 
 ### **Overview**
 A security flaw in the [KLE Tech eResults](https://eresults.kletech.ac.in) portal allows **automated retrieval of student results** without solving multiple CAPTCHAs. The CAPTCHA token remains **unchanged when using the "Go Back" button**, allowing attackers to **reuse the same token** for multiple requests, effectively bypassing CAPTCHA validation.
