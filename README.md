@@ -151,9 +151,6 @@ This repository is for **educational and ethical hacking research purposes only*
 
 ---
 
-## 🔗 **References**
-- [CAPTCHA Bypass Techniques](https://owasp.org/www-project-automated-threats-to-web-applications/)
-- [OWASP IDOR (Insecure Direct Object Reference)](https://owasp.org/www-community/attacks/Insecure_Direct_Object_Reference)
 
 ---
 
