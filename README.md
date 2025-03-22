@@ -26,6 +26,8 @@ This tool is designed for **data aggregation and analysis**, making it easier to
 
 ##  **Burp Suite Request & Response Analysis**
 
+![Screenshot from 2025-03-06 22-16-18](https://github.com/user-attachments/assets/cd08acfa-4991-4690-8297-89745ec252c3)
+
 ### 🔹 **Sample Request Sent to Server**
 ```http
 POST /index.php?option=com_examresult&task=getResult HTTP/1.1
